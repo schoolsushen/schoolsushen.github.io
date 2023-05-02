@@ -13,8 +13,8 @@ body {
 header, footer {
   text-align: left;
   background: #00b10f;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #00b10f, #7a00b1);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #00b10f, #7a00b1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(to right, #00b10f, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #00b10f, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 /*  min-width: 500px; */
 }
 
@@ -31,7 +31,7 @@ header {
 
 main {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(40%, 1fr) ) ;
+  grid-template-columns: repeat(auto-fill, minmax(40%, 1fr) );
   grid-gap: 20px;
   margin: 44px 40px;
   justify-items: center;
@@ -43,9 +43,8 @@ main {
 /* Added h1 definition. Notice the font size calculation. This calc sets the font size at AT LEAST 1.93em, then adds 2% of the view width per character (approx.) */
 h1 {
   font-family: 'Nunito';
-  font-size: calc(1em + 3vw);
+  font-size: calc(1.5em + 3vw);
   padding-bottom: .67em;
-  border-bottom: 1px solid;
   line-height: 1.3;
 }
 
@@ -56,7 +55,7 @@ h2 {
   letter-spacing: 0.3px;
   text-align: left;
   color: #00b10f;
-  padding: 10px 0px 10px 10px;
+  padding: 10px 20px 0 20px;
 }
 
 a {
@@ -66,12 +65,12 @@ a {
 /* Added wrapper class, set some spacing. Remember, margin sets space outside of the box, while padding sets the space inside the box */
 .wrapper {
   max-width: 1150px;
-  padding: 50px;
+  padding: 40px;
   display: block;
 }
 
 .wrap-div {
-  margin: 4em auto;
+  margin: 3em auto;
 }
 
 .bio {
@@ -105,10 +104,13 @@ img, iframe {
   width: 100%;
   height: 50vh;
   object-fit: cover;
+  border-radius: 10px 10px 0 0;
 }
 
-.recipe {
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.5);
+.project {
+	border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  background-color: #f2f2f2;
   width: 100%;
 }
 
@@ -139,15 +141,7 @@ img, iframe {
   letter-spacing: 0.1px;
   text-align: left;
   color: #000000;
-  padding: 10px 0px 10px 10px;
-  border-top: 1px solid #000000;
-}
-
-.logo {
-  width: 115px;
-  height: 21.1px;
-  object-fit: contain;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
 }
 
 /* Removed min-width because some mobile screens are smaller than 500px */
@@ -184,6 +178,23 @@ footer div {
   color: rgb(255, 255, 255, 0.8);
 }
 
+/* Webkit Queries */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #000000; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00b10f; 
+}
+
 /* Media Queries */
 @media all and (max-width:700px) {
   main {
@@ -194,6 +205,10 @@ footer div {
     font-size: 18px;
   }
   img, iframe {
-    height: 30vh;
+    height: 40vh;
+	border-radius: 0;
+  }
+  .project {
+	border-radius: 0;
   }
 }
